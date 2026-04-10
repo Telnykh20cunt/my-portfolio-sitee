@@ -1,0 +1,246 @@
+/* 1. ПІДКЛЮЧЕННЯ ШРИФТІВ */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Tenor+Sans&display=swap');
+
+:root {
+    /* КОЛЬОРИ */
+    --bg-color: #fceedc;
+    --accent-color: #C0392B;
+    --text-dark: #1A1A1A;
+    --white: #FFFFFF;
+    
+    /* РОЗМІРИ ТЕКСТУ */
+    --size-h1: 85px;        /* Головний заголовок */
+    --size-h2: 80px;        /* Заголовки розділів */
+    --size-text: 25px;      /* Маленький текст опису */
+    --size-nav: 16px;       /* Меню */
+    --size-btn: 18px;       /* Текст на кнопці */
+
+    /* РОЗМІРИ ОБ'ЄКТІВ */
+    --logo-width: 180px;    /* ШИРИНА ЛОГОТИПУ */
+    --photo-width: 500px;   /* ШИРИНА ФОТО НА БАНЕРІ */
+    --card-radius: 35px;    /* ЗАКРУГЛЕННЯ КУТІВ */
+}
+
+/* ГЛОБАЛЬНІ НАЛАШТУВАННЯ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-dark);
+    font-family: 'Tenor Sans', sans-serif;
+    line-height: 1.6;
+}
+
+/* ЖИРНИЙ ШРИФТ */
+h1, h2, h3, .nav-menu a, .btn {
+    font-family: 'Montserrat', sans-serif !important;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+/* ЛОГОТИП */
+.main-logo {
+    display: block;
+    width: var(--logo-width) !important;
+    height: auto;
+}
+
+/* НАВІГАЦІЯ */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background-color: #fceedc; 
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+}
+
+.nav-menu li {
+    display: flex;
+    align-items: center;
+}
+
+.nav-menu li::before {
+    content: "●";
+    color: var(--accent-color);
+    margin-right: 8px;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-size: var(--size-nav);
+}
+
+/* БАНЕР */
+.header {
+    display: flex;
+    min-height: 90vh;
+    align-items: center;
+    padding: 0 8%;
+    background: linear-gradient(135deg, #fbd9c8 0%, #ffd1c9 100%);
+}
+
+.header-text h1 {
+    font-size: var(--size-h1);
+    line-height: 0.95;
+    color: var(--accent-color);
+    margin-bottom: 20px;
+}
+
+.header-img img {
+    width: 100%;
+    max-width: 450px;
+    border-radius: 200px 200px 10px 10px;
+    border: 5px solid var(--white);
+    box-shadow: 25px 25px 0px var(--accent-color);
+}
+
+/* КНОПКА */
+.btn {
+    display: inline-block;
+    padding: 20px 45px;
+    background-color: var(--accent-color);
+    color: var(--white) !important; 
+    text-decoration: none !important; 
+    border-radius: 50px;
+    font-size: var(--size-btn);
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background-color: var(--text-dark);
+    transform: scale(1.05);
+}
+
+.header-img img {
+    width: var(--photo-width);
+    border-radius: 30px;
+}
+
+/* ЛІНІЯ НА ВЕСЬ ЕКРАН */
+.full-hr {
+    border: none;
+    height: 2px;
+    background: var(--accent-color);
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+/* ЦЕНТРУВАННЯ ТЕКСТУ */
+.about, .works, .projects {
+    text-align: center;
+    padding: 80px 10%;
+}
+
+.description {
+    font-size: var(--size-text);
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+
+/* КАРТКИ РОБІТ */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    position: relative;
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+    border-radius: var(--card-radius); 
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.card-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.2);
+    transition: 0.4s;
+}
+
+.card:hover .card-overlay {
+    background: rgba(192, 57, 43, 0.9);
+}
+
+.card h3 {
+    color: white;
+    font-size: 24px;
+    z-index: 2;
+}
+
+/* ДИПЛОМНИЙ ВІДЖЕТ */
+.diploma-container {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    background: white;
+    padding: 50px;
+    border-radius: var(--card-radius);
+    text-align: left;
+}
+
+.rounded-img {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Налаштування для галереї всередині розділів */
+.works .cards {
+    padding: 40px 0;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+}
+
+.works .card {
+    height: 500px; 
+    cursor: zoom-in; 
+}
+.card-overlay h3 {
+    font-size: 20px;
+    opacity: 0; 
+    transform: translateY(20px);
+    transition: var(--transition);
+}
+
+.card:hover .card-overlay h3 {
+    opacity: 1; 
+    transform: translateY(0);
+}
+
+/* ФУТЕР */
+.footer {
+    padding: 50px;
+    background: var(--text-dark);
+    color: var(--white);
+    text-align: center;
+    font-size: var(--size-footer);
+}
